@@ -1,0 +1,26 @@
+.target-alumnos{
+    text-align: center;
+    margin: 10%;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 25%;
+    border-color: black;
+    border-style: groove;
+}
+.target-profesores{
+    text-align: center;
+    margin: 10%;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 25%;
+    border-color: black;
+    border-style: groove;
+}
+.target-profesores h3{
+    margin-top: 20px;
+}
+.target-alumnos h3{
+    margin-top: 20px;
+}
