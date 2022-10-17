@@ -2,7 +2,7 @@
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
-include("conectar.php");
+include("../connection/conn.php");
 
 $nombre=$_POST['name'];
 $apellido=$_POST['last_name'];
@@ -15,7 +15,7 @@ $resultado=mysqli_query($con,$consulta);
 if($resultado){
 echo "<script>
 		alert('La ficha del alumno ha sido creada'); 
-		window.location= 'verAlumno.php'
+		window.location= 'index.php'
 	</script>";
 mysqli_close($con);
 

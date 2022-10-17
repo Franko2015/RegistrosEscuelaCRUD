@@ -1,12 +1,12 @@
 <?php
-include("conectar.php");
+include("../connection/conn.php");
 
-$id=$_POST['identified'];
+$id=$_POST['id'];
 $nombre=$_POST['nombres'];
 $apellido=$_POST['apellidos'];
 $contraseña=$_POST['pswd'];
 
-$consultaActualizar="UPDATE tblAlumno SET nombresAlumno='$nombre', apellidosAlumno='$apellido', contraseñaAlumno='$contraseña' WHERE id = '$id'";
+$consultaActualizar="UPDATE tblAlumno SET nombresAlumno='$nombre', apellidosAlumno='$apellido', contraseñaAlumno='$contraseña' WHERE idAlumno = '$id'";
 
 $resultado= mysqli_query($con, $consultaActualizar);
 

@@ -1,5 +1,6 @@
 <?php
-include("conectar.php");
+
+include("../connection/conn.php");
 
 $id=$_GET['id'];
 
@@ -11,7 +12,7 @@ if($resultado){
 	
 echo "<script>
 		alert('El alumno ha sido eliminado'); 
-		window.location= 'verAlumno.php'
+		window.location= 'index.php'
 	</script>";
 
 }else{

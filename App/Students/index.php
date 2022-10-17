@@ -8,47 +8,36 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../App/css/navbar.css">
+    <link rel="stylesheet" href="../../App/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="btn btn-dark" href="index.php">Página principal</a>
+      <a class="btn btn-dark" href="../../">Página principal</a>
     </li>
-
     <div class="navbar-collapse collapse" id="navbar01">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" font-size:" 150%;">&nbsp;&nbsp;Datos</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" font-size:" 150%;">&nbsp;&nbsp;Datos</a>
 
-              <div class="dropdown-menu dropdown-hover" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="verAlumno.php">Alumnos</a>
-              <a class="dropdown-item" href="verProfesor.php">Profesores</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+            <div class="dropdown-menu dropdown-hover" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="../../App/Students/">Alumnos</a>
+            <a class="dropdown-item" href="../../App/Teachers/">Profesores</a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </ul>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar01" aria-controls="navbar01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="navbar-collapse collapse" id="navbar01">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" font-size:" 150%;">&nbsp;&nbsp;Registrar</a>
-
-              <div class="dropdown-menu dropdown-hover" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="addAlumno.php">Alumno</a>
-              <a class="dropdown-item" href="addProfesor.php">Profesor</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+  </button>
 </nav>
-<br>
-<div class="container">          
-  <table class="table table-hover table-responsive-md" border="2">
+<div class="container mx-auto m-2">
+<a href="create.php" class="btn btn-outline-dark">Agregar Alumno</a>
+<center>
+  <table class="table table-hover table-responsive-md m-3" border="2">
     <thead>
       	<tr align="center">
 	      <th>Id</th>
@@ -61,7 +50,7 @@
     </thead>
     <tbody>
 <?php
-  include("conectar.php"); 
+include("../connection/conn.php");
   $sql="SELECT * from tblAlumno a INNER JOIN tblProfesor p ON a.idProfesor = p.idProfesor";
     $result=mysqli_query($con,$sql);
 
@@ -73,12 +62,13 @@
       <td><?php echo $mostrar['apellidosAlumno'] ?></td>
       <td><?php echo $mostrar['contraseñaAlumno'] ?></td>
       <td><?php echo $mostrar['nombresProfesor'];?>&nbsp<?php echo $mostrar['apellidosProfesor'] ?></td>
-      <td><a href="eliminarAlumno.php?id=<?php echo $mostrar['idAlumno']; ?>">Eliminar</a></td>
-      <td><a href="editarAlumno.php?id=<?php echo $mostrar['idAlumno']; ?>">Editar</a></td>
+      <td><a href="delete.php?id=<?php echo $mostrar['idAlumno']; ?>">Eliminar</a></td>
+      <td><a href="edit.php?id=<?php echo $mostrar['idAlumno']; ?>">Editar</a></td>
     </tr>
   <?php } ?>
     </tbody>
   </table>
+</center>
 </div>
 
 </body>
